@@ -1,0 +1,63 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<h1 class="page-header">Collateral</h1>
+<div ng-controller="myCtrl">
+<div class="panel panel-primary">
+<div class="panel-heading">
+    <h3 class="panel-title">Type Selection</h3>
+  </div>
+  <div class="panel-body">
+   <form class="form-horizontal" role="form">
+            <div  align="center">
+               <div id="fTypeDrpdowns" name="fTypeDrpdowns" >
+                  <div>
+                     <div class= "col-sm-4">
+                        <div class="form-group ">
+                           <label class="control-label label-left" for="WflowType">Workflow Type</label>
+                           <select id="WflowType" name="WflowType" ng-model="WflowType"  ng-init="WflowType = 'Select'" class="form-control"  ng-change="changeValue(WflowType,'wftype')">
+                              <option value="Select">--Select--</option>
+                              <option ng-repeat="wftype in workflowtype">{{wftype}}</option>
+                           </select>
+                        </div>
+                        <div class="form-group ">
+                           <label class="control-label label-left" ng-disabled="!WflowType">Service Type</label>
+                           <select name="sType" ng-model="sType"   ng-init="sType = 'Select'" ng-disabled="!(WflowType == 'Collateral')" class="form-control" ng-change="changeValue(sType,'stype')">
+                              <option value="Select">--Select--</option>
+                              <option ng-repeat="stype in serviceType" value="{{stype}}">{{stype}}</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div>
+                        <div class= "col-sm-4 col-sm-offset-1">
+                           <div class="form-group ">
+                              <label class="control-label label-left" ng-disabled="!sType">Request Type</label>
+                              <select name="RType" ng-model="RType" ng-init="RType = 'Select'" class="form-control" ng-disabled="!(sType == 'UCC')"  ng-change="changeValue(sType,'rtype')">
+                                 <option value="Select">--Select--</option>
+                                 <option ng-repeat="rtype in requestType" value="{{rtype}}">{{rtype}}</option>
+                              </select>
+                           </div>
+                           <div class="form-group ">
+                              <label class="control-label label-left" ng-disabled="!RType">Request Sub-Type</label>
+                              <select name="RsType" ng-model="RsType" ng-init="RsType = 'Select'"  ng-disabled="!(RType == 'Search')" class="form-control">
+                                 <option value="Select">--Select--</option>
+                                 <option ng-repeat="rstype in requestSubType" value="{{rstype}}">{{rstype}}</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                     <br>
+                  </div>
+               </div>
+   </form>
+   
+   </div>
+  
+</div>
+ <div class="panel-footer">
+ 
+ <a class="btn btn-info pull-left type="button" href="#view3">Cancel</a>
+
+ <a class="btn btn-primary pull-right type="button" href="#view4">Next</a>
+  <div class="clearfix"></div>
+ </div>
+</div>
+</div>
